@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import ScanResults from "./pages/ScanResults/ScanResults";
 import JobDetail from "./pages/JobDetail/JobDetail";
 import About from "./pages/About/About";
+import Auth from "./pages/Auth/Auth";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/scan-results" element={<ScanResults />} />
           <Route path="/job/:id" element={<JobDetail />} />
           <Route path="/about" element={<About />} />
+          <Route path="/auth" element={<Auth />} />
         </Routes>
       </main>
       <Footer />

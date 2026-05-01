@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { HiOutlineShieldCheck } from "react-icons/hi";
+import { HiOutlineShieldCheck, HiOutlineUser } from "react-icons/hi";
 import { FiMenu, FiX, FiSearch, FiSun, FiMoon } from "react-icons/fi";
 import "./Navbar.css";
 
@@ -72,6 +72,23 @@ export default function Navbar() {
               {theme === "dark" ? <FiSun /> : <FiMoon />}
             </button>
 
+            <Link to="/auth" style={{ 
+              color: "var(--color-text-primary)", 
+              textDecoration: "none", 
+              fontWeight: 600, 
+              display: "flex", 
+              alignItems: "center", 
+              gap: "6px",
+              fontSize: "0.95rem",
+              transition: "var(--transition-fast)"
+            }}
+            onMouseOver={(e) => e.currentTarget.style.color = "var(--color-accent-primary)"}
+            onMouseOut={(e) => e.currentTarget.style.color = "var(--color-text-primary)"}
+            >
+              <HiOutlineUser size={18} />
+              Sign In
+            </Link>
+
             <Link to="/scan-results" className="navbar-scan-btn">
               <FiSearch size={16} />
               View Scans
@@ -102,6 +119,10 @@ export default function Navbar() {
             {link.label}
           </NavLink>
         ))}
+        <Link to="/auth" className="navbar-link" onClick={closeMobile} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <HiOutlineUser size={18} />
+          Sign In / Sign Up
+        </Link>
         <Link to="/scan-results" className="navbar-scan-btn" onClick={closeMobile}>
           <FiSearch size={16} />
           View Scans
